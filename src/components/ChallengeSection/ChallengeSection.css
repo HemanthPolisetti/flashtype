@@ -1,0 +1,15 @@
+.Test-Container{
+    min-height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    margin:24px 0;
+}
+.Test-Heading{
+    color:aliceblue;
+    text-align:center;
+    font-family:'Bangers',cursive;
+    letter-spacing:4px;
+    font-size:5s0px;
+}

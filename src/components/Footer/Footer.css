@@ -1,0 +1,14 @@
+.Footer{
+    background-color:#262a2b;
+    display:flex;
+    justify-content:center;
+    margin:0;
+    box-shadow:0 1px 3px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.26);
+    z-index:99;
+}
+.Footer a{
+    color:aliceblue;
+    font-size:26px;
+    margin:10px;
+    text-align:center
+}
