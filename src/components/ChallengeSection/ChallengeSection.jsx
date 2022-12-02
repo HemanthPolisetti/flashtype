@@ -2,7 +2,7 @@ import React from 'react';
 import TestContainer from '../TestContainer/TestContainer';
 import './ChallengeSection.css';
 
-export default function ChallengeSection({selectedParagraph,timeStarted,timeRemaining,words,char,wpm,testInfo,handleInputChange}){
+export default function ChallengeSection({selectedParagraph,timeStarted,timeRemaining,words,char,wpm,testInfo,handleInputChange,startAgain}){
     return(
         <div>
         <div className="Test-Container">
@@ -12,7 +12,8 @@ export default function ChallengeSection({selectedParagraph,timeStarted,timeRema
         timeRemaining={timeRemaining} 
         words={words} char={char} wpm={wpm}
         testInfo={testInfo}
-        handleInputChange={handleInputChange}/>
+        handleInputChange={handleInputChange}
+        startAgain={startAgain}/>
         </div>
         </div>
     )

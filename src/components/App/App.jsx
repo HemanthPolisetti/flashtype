@@ -10,44 +10,49 @@ function App() {
 let totalTime=60;
 const [state,setState]=React.useState({
   words:0,
-  char:0
+  char:0,
+  wpm:0
 })
-  const [wpm,setWpm]=React.useState(0)
   const [testInfo,setTestInfo]=React.useState([])
-  const [selectedParagraph,setSelectedParagraph]=React.useState("Hello World")
+  const [selectedParagraph,setSelectedParagraph]=React.useState("")
   const [timeRemaining,setTimeRemaining]=React.useState(totalTime)
   const [timeStarted,setTimeStarted]=React.useState(false)
+const myComponent=()=>{
+  fetch(apiUrl)
+  .then((response) => response.text())
+  .then((data) => {
+    setSelectedParagraph(data);
+    const selectedParagraphArray = data.split("");
+    const temp = selectedParagraphArray.map((selectedLetter) => {
+      return {
+        testLetter: selectedLetter,
+        status: "unAttempt",
+      };
+    });
+    setTestInfo(temp);
+    
+  });
+}
+const startAgain=()=>alert("hemanth")
 
-  useEffect(() => {
-    fetch(apiUrl)
-      .then((response) => response.text())
-      .then((data) => {
-        setSelectedParagraph(data);
-        const selectedParagraphArray = data.split("");
-        const temp = selectedParagraphArray.map((selectedLetter) => {
-          return {
-            testLetter: selectedLetter,
-            status: "unAttempt",
-          };
-        });
-        setTestInfo(temp);
-      });
-  }, []);
-
+useEffect(() => {
+    myComponent()
+},[]);
+const nwords=(state.words)
 const startTimer = () => {
   setTimeStarted(true);
   const timer = setInterval(() => {
       if (timeRemaining > 0) {
-           setTimeRemaining((timeRemaining)=>{
-            return (timeRemaining-1)
+           setTimeRemaining((timeRemaining1)=>{
+            const timeSpent=(totalTime-timeRemaining1)
+            const wpm=(timeSpent>0)?((nwords/timeSpent)*totalTime):0
+            console.log(nwords)
+            setState({wpm:parseInt(wpm)})
+            return (timeRemaining1-1)
+           
            });}
-           if (timeRemaining > 0) {
-           const timeSpent=(totalTime-timeRemaining)
-            const speed=(timeSpent>0)?((state.words/timeSpent)*totalTime):0
-            setWpm((wpm)=>{
-                return (wpm=parseInt(speed))})   
 
-      } else {
+      else {
           clearInterval(timer);
       }
   },1000);
@@ -80,6 +85,7 @@ const handlerevents=(inputValue)=>{
     
 }
 
+
   const handleInputChange=(inputValue)=>{
   if(!timeStarted) startTimer(inputValue);
   handlerevents(inputValue)
@@ -90,8 +96,8 @@ const handlerevents=(inputValue)=>{
       <Navbar />
       <Landing />
       <ChallengeSection selectedParagraph={selectedParagraph} timeStarted={timeStarted} 
-      timeRemaining={timeRemaining} words={state.words} char={state.char} wpm={wpm} testInfo={testInfo} 
-      handleInputChange={handleInputChange}/>
+      timeRemaining={timeRemaining} words={state.words} char={state.char} wpm={state.wpm} testInfo={testInfo} 
+      handleInputChange={handleInputChange} startAgain={startAgain}/>
       <Footer />
   </div>
     )

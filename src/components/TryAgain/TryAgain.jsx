@@ -1,7 +1,7 @@
 import React from 'react';
 import './TryAgain.css';
 
-export default function TryAgain({words,char,wpm}){
+export default function TryAgain({words,char,wpm,startAgain}){
     return(
         <div className="Tryagain-Cont">
             <h1 className="testheading">Test Results</h1>
@@ -11,7 +11,7 @@ export default function TryAgain({words,char,wpm}){
                 <p><b>Speed:</b>{wpm}</p>
             </div>
             <div>
-            <button className="end-buttons re-try">Re-Try</button>
+            <button className="end-buttons re-try" >Re-Try</button>
             <button onClick={()=>{
                 window.open(
                 "https://www.facebook.com/sharer/sharer.php?u=",
