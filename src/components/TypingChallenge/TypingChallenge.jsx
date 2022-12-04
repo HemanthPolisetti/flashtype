@@ -14,10 +14,15 @@ export default function TypingChallenge({selectedParagraph,timeRemaining,timeSta
             <div className="textarea-cont">
                     <div className="textarea-left">
                     <div className="textarea text-para">
-                        {/* {selectedParagraph} */}
                         {testInfo.map((individualItems,index)=>{
-                            return<TestLetter key={index}
-                            individualItems={individualItems}/>
+                           return( <>
+                            <span>
+                            <span> 
+                            <TestLetter key={index} individualItems={individualItems}/>
+                            </span>
+                            </span>
+                            
+                            </>)
                         })}
                         </div>
                     </div>

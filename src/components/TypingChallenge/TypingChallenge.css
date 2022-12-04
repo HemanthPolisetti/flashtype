@@ -26,15 +26,18 @@
     flex-direction:row;
     flex-grow:1;
     width:80%;
-    margin:16px
+    margin:16px;
+
 }
 .textarea-right,
 .textarea-left{
     display:flex;
     width:50%;
     flex-grow:1;
+    
 }
 .textarea{
+    
     display:flex;
     flex-wrap:wrap;
     flex-grow:1;
@@ -52,7 +55,8 @@
 .text-para{
     font-size:12px;
     background:#e7e5e4;
-    padding:12px
+    padding:12px;
+    font-family:'Tahoma',cursive;
 }
 .textarea::-webkit-scrollbar{
     display:none;
